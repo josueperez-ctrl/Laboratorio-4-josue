@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -42,7 +43,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -57,11 +58,17 @@ fun GreetingPreview() {
             ) {
                 Text(text = "Tarjeta de ejemplo", modifier = Modifier.padding(16.dp))
             }
-            var isChecked by remember { mutableStateOf(false) }
+            var isChecked by remember { mutableStateOf(value = false) }
             Switch(
                 checked = isChecked,
                 onCheckedChange = { isChecked = it },
             )
+            FloatingActionButton(
+                onClick = { /* Acción */ },
+                modifier = Modifier.padding(top = 8.dp),
+            ) {
+                Text("+")
+            }
         }
     }
 }
